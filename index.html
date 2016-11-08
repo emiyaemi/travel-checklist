@@ -10,7 +10,7 @@
     <title>Travel Planning</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container pageOne">
       <div class="jumbotron">
         <div class="row">
           <div class="col-md-12">
@@ -354,15 +354,35 @@
           </div>
         </div>
       </form>
-      <div class="output">
-        <ul class="output-list">
-          <li>Who will be travelling: <ul><span class="list-who"></span></ul></li>
-          <li>Where are you travelling to: <span class="list-where"></span></li>
-          <li>How will you be travelling: <span class="list-how"></span></li>
-          <li>Where will you be staying: <span class="list-staying"></span></li>
-          <li>Planned Activity: <span class="list-activities"></span></li>
-        </ul>
-        <button type="button" class="btn btn-primary" id="to-next-page">Generate Checklist</button>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="outputs">
+            <ul class="output-list">
+              <li>Who will be travelling: <ul><span class="list-who"></span></ul></li>
+              <li>Where are you travelling to: <span class="list-where"></span></li>
+              <li>How will you be travelling: <span class="list-how"></span></li>
+              <li>Where will you be staying: <span class="list-staying"></span></li>
+              <li>Planned Activity: <span class="list-activities"></span></li>
+            </ul>
+            <button type="button" class="btn btn-primary" id="to-next-page">Generate Checklist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container pageTwo">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>travel planning checklist</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>This checklist has been generated for:</h4>
+          <p><span id="sentenceUser">p</span></p>
+        </div>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>

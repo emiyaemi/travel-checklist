@@ -1,7 +1,5 @@
 
 // begin business logic
-
-
 function Traveler(travelPlace, travelMode, travelAccom, travelAct, traveler) {
   this.travelPlace = travelPlace;
   this.travelMode = travelMode;
@@ -27,9 +25,13 @@ Traveler.prototype.travelerSentence = function () {
 
 // Front End
 
+
+
 $(document).ready(function() {
+
   $("form#userTravelType").submit(function(event){
     event.preventDefault();
+
     var who = $('#who input:checkbox:checked').val();
     var where = $('#where').val();
     var how = $('#how input:radio:checked').val();
@@ -45,8 +47,7 @@ $(document).ready(function() {
 
     newTraveler.travelerList();
 
-
-    $(".output").show();
+    $(".outputs").show();
     $(".list-who").append(travelerList);
     $(".list-where").text(newTraveler.travelPlace);
     $(".list-how").text(newTraveler.travelMode);
@@ -54,48 +55,16 @@ $(document).ready(function() {
     $(".list-activities").text(newTraveler.travelAct);
   });
 
-  //move to checklist.html page
+  $("#to-next-page").click(function() {
+    var who = $('#who input:checkbox:checked').val();
+    var where = $('#where').val();
+    var how = $('#how input:radio:checked').val();
+    var staying = $('#staying input:radio:checked').val();
+    var activities = $('#activities input:radio:checked').val();
 
-$("button#to-next-page").click(function() {
-
-  $("p#checkListPage").load("checklist.html"){
-
-  };
-
-});
-
-
-
-
-
-// function sendSentence() {
-//   var send = document.getElementId("to-next-page").value;
-//   url = "checklist.html/next.html?name=" + $("#checkListPage").text("test");
-//   document.location.href = url;
-// }
-//
-//
-//
-//
-//     window.location.href="checklist.html";
-//     // return false;
-//
-//     alert("on new page");
-//
-//     });
-// });
-    //NOT OUTPUTTING
-    // var who = $('#who input:checkbox:checked').val();
-    // var where = $('#where').val();
-    // var how = $('#how input:radio:checked').val();
-    // var staying = $('#staying input:radio:checked').val();
-    // var activities = $('#activities input:radio:checked').val();
-    //
-    // var newTraveler = new Traveler(where, how, staying, activities);
-
-
-    // newTraveler.travelerSentence();
-    //
-    // $("#checkListPage").text(travelerSentencePage + "traveling to " + newTraveler.travelPlace +" by "+ newTraveler.travelMode +  ". Accommodation: " + newTraveler.travelAccom + ". Planned activity: " + newTraveler.travelAct);
-
+    var newTraveler = new Traveler(where, how, staying, activities);
+    newTraveler.travelerSentence();
+    console.log(newTraveler);
+    $("#sentenceUser").text(travelerSentencePage + "traveling to " + newTraveler.travelPlace +" by "+ newTraveler.travelMode +  ". Accommodation: " + newTraveler.travelAccom + ". Planned activity: " + newTraveler.travelAct);
+  });
 });
