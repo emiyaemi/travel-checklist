@@ -15,17 +15,14 @@ Traveler.prototype.travelerList = function() {
     travelerList += "<li>" + this.travelerUser[i]+ "</li>";
   }
 }
-var travelerSentencePage = "";
 
-Traveler.prototype.travelerSentence = function () {
-  for(var i = 0; i < this.travelerUser.length; i++) {
-    travelerSentencePage += this.travelerUser[i]+ ", ";
-  }
-}
+// Traveler.prototype.backgroundImage = function(){
+//     $("body#backgroundImage").css("background-image", "url(this.travelPlace + ."jpg")");
+// }
+
+
 
 // Front End
-
-
 
 $(document).ready(function() {
 
@@ -46,6 +43,8 @@ $(document).ready(function() {
     });
 
     newTraveler.travelerList();
+    newTraveler.backgroundImage();
+    console.log(travelPlace);
 
     $(".outputs").show();
     $(".list-who").append(travelerList);
@@ -55,16 +54,26 @@ $(document).ready(function() {
     $(".list-activities").text(newTraveler.travelAct);
   });
 
-  $("#to-next-page").click(function() {
-    var who = $('#who input:checkbox:checked').val();
-    var where = $('#where').val();
-    var how = $('#how input:radio:checked').val();
-    var staying = $('#staying input:radio:checked').val();
-    var activities = $('#activities input:radio:checked').val();
+  // Try on click with div right after the body tag like the jsfiddle example
 
-    var newTraveler = new Traveler(where, how, staying, activities);
-    newTraveler.travelerSentence();
-    console.log(newTraveler);
-    $("#sentenceUser").text(travelerSentencePage + "traveling to " + newTraveler.travelPlace +" by "+ newTraveler.travelMode +  ". Accommodation: " + newTraveler.travelAccom + ". Planned activity: " + newTraveler.travelAct);
-  });
+
+  //
+  // $("#to-next-page").click(function() {
+  //   var who = $('#who input:checkbox:checked').val();
+  //   var where = $('#where').val();
+  //   var how = $('#how input:radio:checked').val();
+  //   var staying = $('#staying input:radio:checked').val();
+  //   var activities = $('#activities input:radio:checked').val();
+  //
+  //   var newTraveler = new Traveler(where, how, staying, activities);
+  //
+  //   $('#who input:checkbox:checked').each(function() {
+  //     who = $(this).val();
+  //     newTraveler.travelerUser.push(who);
+  //   });
+  //
+  //   newTraveler.travelerSentence();
+  //
+  //   $("#sentenceUser").text(travelerSentencePage + "traveling to " + newTraveler.travelPlace +" by "+ newTraveler.travelMode +  ". Accommodation: " + newTraveler.travelAccom + ". Planned activity: " + newTraveler.travelAct);
+  // });
 });
